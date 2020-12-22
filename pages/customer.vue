@@ -59,6 +59,7 @@ export default {
       console.log("click");
       const historySearch = {
         // return裡面的customerName{{}} 對上 this.customerName
+        // testsgitstatus
         customerName: this.customerName,
         customerTel: this.customerTel,
         createdAt: new Date().getTime(),
