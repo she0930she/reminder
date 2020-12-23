@@ -4,3 +4,18 @@
 h1{
     color:red;
 }
+.container{
+    max-width: 600px;
+    margin:50px auto;
+}
+.customerDiv {
+    display: flex;
+    
+}
+.customerDiv div{
+    margin-right: 10px;
+}
+/* button */
+/* .reminderBtn{
+    border:none;
+} */

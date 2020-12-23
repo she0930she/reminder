@@ -1,17 +1,19 @@
 <template>
   <div>
-    <!-- TODO: -->
-    <!-- navbar -->
-    <!-- navbar END-->
-    <div>
-      <nuxt-link to="/">BMP</nuxt-link>
+    <div class="container">
+      <!-- TODO: navbar-->
+      <!-- navbar -->
+      <NavBar />
+      <!-- navbar END-->
+      <div>
+        <!-- <nuxt-link to="/">BMP</nuxt-link>
       <nuxt-link to="/customer">customer</nuxt-link>
-      <nuxt-link to="">office</nuxt-link>
-      <h1>{{ title }}</h1>
-      <input type="text" v-model="title" />
-    </div>
+      <nuxt-link to="">office</nuxt-link> -->
+        <h1>{{ title }}</h1>
+        <input type="text" v-model="title" />
+      </div>
 
-    <!-- <div>
+      <!-- <div>
       <Logo />
       <h1 class="title">reminder</h1>
       <div class="links">
@@ -33,11 +35,17 @@
         </a>
       </div>
     </div> -->
+    </div>
   </div>
 </template>
 
 <script>
+import NavBar from "@/components/NavBar";
 export default {
+  name: "indexPage",
+  components: {
+    NavBar,
+  },
   data() {
     return {
       title: "Home",
@@ -47,14 +55,14 @@ export default {
 </script>
 
 <style>
-.container {
+/* .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
+} */
 
 .title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,

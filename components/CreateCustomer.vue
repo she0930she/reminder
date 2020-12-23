@@ -1,14 +1,13 @@
 <template>
   <div>
+    <!-- createCustomer -->
     <div class="container">
-      <!-- TODO: -->
-      <!-- navbar -->
-      <NavBar />
-      <!-- navbar END-->
-      <h1>createCustomer</h1>
       <form @submit.prevent="createCustomer">
         <label for="">舊客戶姓名:</label>
         <input type="text" placeholder="舊客戶姓名" />
+        <br />
+        <!-- TODO:抓到客戶姓名，並儲存在object裡面 -->
+        <!-- TODO:考慮是否為"每一個新客戶"設定"新id" 供我們辨認-->
         <label for="">新客戶姓名:</label>
         <input type="text" placeholder="新客戶姓名" />
         <br />
@@ -16,9 +15,11 @@
         <input type="radio" value="today" />
         <label for="today">今天</label>
         <!--今天或 日曆給它選 -->
+        <br />
         <input type="radio" value="chooseDay" />
         <label for="chooseDay">選擇日期</label>
         <br />
+        <!-- TODO:把購買品項的JS寫進這份檔案裡 -->
         <label for="">購買品項：</label>
         <select name="" id="">
           <option value="">保養品</option>
@@ -27,21 +28,18 @@
           <option value="">TR90</option>
           <option value="">輔銷品</option>
         </select>
+        <br />
         <label for="">數量</label>
         <input type="number" />
         <br />
-
         <button>新增購買品項</button>
         <br />
         <br />
         <label for="">Note</label>
-        <input
-          type="text"
-          placeholder="備註"
-          style="height: 70px; font-size: 14pt"
-        />
+        <input type="text" placeholder="備註" />
         <br />
         <br />
+        <!-- TODO:新增客戶名單 -->
         <button>新增客戶資料</button>
       </form>
     </div>
@@ -49,7 +47,7 @@
 </template>
 <script>
 export default {
-  name: "createCustomerPage",
+  name: "CreateCustomer",
   data() {
     return {};
   },

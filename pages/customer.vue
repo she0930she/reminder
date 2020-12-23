@@ -1,46 +1,71 @@
 <template>
   <div>
-    <h1>customer page</h1>
-    <!-- TODO: -->
-    <!-- navbar -->
-    <!-- navbar END-->
-    <button @click="reminder" class="btn btn-secondary">本月提醒</button>
-    <br />
-    <br />
-    <form @submit.prevent="historyCustomer">
-      <h3>歷史資料</h3>
-      <label for="">客戶姓名</label>
-      <input v-model="customerName" type="text" placeholder="客戶姓名" />
-      <h4>或</h4>
-      <input v-model="customerTel" type="text" placeholder="客戶手機號碼" />
-      <!-- <h4>
-        或<br />
-        使用下拉選單尋找客戶
-      </h4> -->
-      <!-- <select v-model="historyName" id="">
-        <option name="historyName" value="" disabled>請選擇客戶姓名</option>
-        <option name="historyName" value="">大雄</option>
-        <option name="historyName" value="">靜香</option>
-        <option value="">胖虎</option>
-      </select> -->
-      <button>搜尋</button>
-    </form>
-    <br />
-    <br />
-    <button>使用產品搜尋客戶</button>
-    <br />
-    <br />
-    <button @click="newCumstomer">新增客戶資料</button>
-    <h3>本月提醒區:</h3>
-    <h3>客戶歷史資料區:</h3>
-    <p>{{ customerList }}</p>
-    <h3>新增客戶資料區:</h3>
-    <h3>產品搜尋客戶區:</h3>
+    <div class="container">
+      <!-- TODO: -->
+      <!-- navbar -->
+      <NavBar />
+      <!-- navbar END-->
+      <h1>customer page</h1>
+      <br />
+
+      <div class="customerDiv">
+        <div class="remindDiv">
+          <button @click="reminder" class="btn reminderBtn">本月提醒</button>
+          <Remind />
+        </div>
+        <br />
+        <br />
+        <!-- 歷史資料 -->
+        <div class="historyDiv">
+          <h3>歷史資料</h3>
+          <form @submit.prevent="historyCustomer">
+            <label for="">客戶姓名</label>
+            <input v-model="customerName" type="text" placeholder="客戶姓名" />
+            <h4>或</h4>
+            <input
+              v-model="customerTel"
+              type="text"
+              placeholder="客戶手機號碼"
+            />
+
+            <button>搜尋</button>
+          </form>
+          <br />
+          <br />
+          <button>使用產品搜尋客戶</button>
+        </div>
+        <!-- 歷史資料 END-->
+        <!-- 新增客戶資料 -->
+        <div class="createDiv">
+          <button @click="newCumstomer">新增客戶資料</button>
+          <CreateCustomer />
+          <!-- <nuxt-link to="createCustomer"
+            ><button @click="newCumstomer">新增客戶資料</button>
+            </nuxt-link> -->
+        </div>
+        <!-- 新增客戶資料 END-->
+      </div>
+      <br />
+      <h3>本月提醒區:</h3>
+      <h3>客戶歷史資料區:</h3>
+      <p>{{ customerList }}</p>
+      <div
+        v-for="historySearch in customerList"
+        :key="historySearch.createdAt"
+        class="renderCustomer"
+      >
+        <div class="customerName">{{ historySearch.customerName }}</div>
+        <div class="customerTel">{{ historySearch.customerTel }}</div>
+      </div>
+      <h3>新增客戶資料區:</h3>
+      <h3>產品搜尋客戶區:</h3>
+    </div>
   </div>
 </template>
 <script>
+// import NavBar from "@/components/NavBar";
 export default {
-  name: "customer",
+  name: "customerPage",
   data() {
     return {
       customerName: "",
